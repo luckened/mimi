@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'components/bottom_navigation.dart';
+import 'components/info_page.dart';
+import 'components/news_page.dart';
+import 'components/questionnaires_page.dart';
+import 'components/contact_tracing_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -29,22 +34,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Questionnaires',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: AAAA',
-      style: optionStyle,
-    ),
+    QuestionnairesPage(),
+    NewsPage(),
+    ContactTracingPage(),
+    InfoPage(),
   ];
 
   void _onItemTapped(int index) {
