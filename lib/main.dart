@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'components/bottom_navigation.dart';
 import 'components/info_page.dart';
 import 'components/news_page.dart';
-import 'components/questionnaires_page.dart';
+import 'components/questionnaires/questionnaires_page.dart';
 import 'components/contact_tracing_page.dart';
 
 void main() => runApp(const MyApp());
@@ -49,12 +49,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Mimi'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+          child: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      )),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
