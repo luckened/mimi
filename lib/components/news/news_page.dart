@@ -6,15 +6,12 @@ import 'package:http/http.dart' as http;
 import 'news_card.dart';
 
 Future<NewsCard> fetchNews() async {
-  final response = await http.get(Uri.parse(''));
+  final response = await http.get(Uri.parse(
+      'https://newsapi.org/v2/everything?q=covid&from=2022-07-10&sortBy=publishedAt&apiKey=5963a145eb3643db93949a6f7a214df0'));
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return NewsCard.fromJson(jsonDecode(response.body));
+    return NewsCard.fromJson(jsonDecode(response.body)['articles'][0]);
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load news');
   }
 }
 
@@ -42,12 +39,12 @@ class _NewsPageState extends State<NewsPage> {
         future: futureNews,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Text(snapshot.data!.title);
+            print(snapshot.data);
+            return snapshot.data!;
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
 
-          // By default, show a loading spinner.
           return const CircularProgressIndicator();
         },
       ),

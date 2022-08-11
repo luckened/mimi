@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'components/bottom_navigation.dart';
 import 'components/info_page.dart';
-import 'components/news_page.dart';
+import 'components/news/news_page.dart';
 import 'components/questionnaires/questionnaires_page.dart';
 import 'components/contact_tracing_page.dart';
 
@@ -52,9 +52,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: const Text('Mimi'),
       ),
       body: SingleChildScrollView(
-          child: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      )),
+          child: Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Center(
+                child: _widgetOptions.elementAt(_selectedIndex),
+              ))),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

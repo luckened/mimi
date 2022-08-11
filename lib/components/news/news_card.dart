@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
@@ -12,6 +13,14 @@ class NewsCard extends StatelessWidget {
       required this.description,
       required this.image,
       required this.url});
+
+  Future<void> _launchUrl() async {
+    final Uri url = Uri.parse(this.url);
+
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +46,14 @@ class NewsCard extends StatelessWidget {
                       child: Text(
                         description,
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                      ))
+                      )),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: ElevatedButton(
+                      onPressed: _launchUrl,
+                      child: Text('Show Flutter homepage'),
+                    ),
+                  ),
                 ],
               )),
         ],
@@ -48,9 +64,9 @@ class NewsCard extends StatelessWidget {
   factory NewsCard.fromJson(Map<String, dynamic> json) {
     return NewsCard(
       title: json['title'],
-      description: '',
-      image: '',
-      url: '',
+      description: json['description'],
+      image: json['urlToImage'],
+      url: json['url'],
     );
   }
 }
