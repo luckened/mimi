@@ -51,7 +51,7 @@ class NewsCard extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: ElevatedButton(
                       onPressed: _launchUrl,
-                      child: Text('Show Flutter homepage'),
+                      child: const Text('Go to news page'),
                     ),
                   ),
                 ],

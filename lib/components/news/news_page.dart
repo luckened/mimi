@@ -39,8 +39,7 @@ class _NewsPageState extends State<NewsPage> {
         future: futureNews,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print(snapshot.data);
-            return snapshot.data!;
+            return Column(children: [snapshot.data!, snapshot.data!]);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
