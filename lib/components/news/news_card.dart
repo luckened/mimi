@@ -29,7 +29,7 @@ class NewsCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          Image.network(image),
+          image != '' ? Image.network(image) : Container(),
           Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
               child: Column(
@@ -65,7 +65,7 @@ class NewsCard extends StatelessWidget {
     return NewsCard(
       title: json['title'],
       description: json['description'],
-      image: json['urlToImage'],
+      image: json['urlToImage'] ?? '',
       url: json['url'],
     );
   }

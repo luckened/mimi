@@ -5,11 +5,15 @@ import 'package:http/http.dart' as http;
 
 import 'news_card.dart';
 
-Future<NewsCard> fetchNews() async {
+Future<Column> fetchNews() async {
   final response = await http.get(Uri.parse(
-      'https://newsapi.org/v2/everything?q=covid&from=2022-07-10&sortBy=publishedAt&apiKey=5963a145eb3643db93949a6f7a214df0'));
+      'https://newsapi.org/v2/everything?q=covid&apiKey=5963a145eb3643db93949a6f7a214df0'));
   if (response.statusCode == 200) {
-    return NewsCard.fromJson(jsonDecode(response.body)['articles'][0]);
+    final List<dynamic> articles = jsonDecode(response.body)['articles'];
+
+    return Column(
+      children: articles.map((article) => NewsCard.fromJson(article)).toList(),
+    );
   } else {
     throw Exception('Failed to load news');
   }
@@ -24,7 +28,7 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage> {
   // @TODO: futureNews should be a list of news cards
-  late Future<NewsCard> futureNews;
+  late Future<Column> futureNews;
 
   @override
   void initState() {
@@ -35,11 +39,11 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: FutureBuilder<NewsCard>(
+      child: FutureBuilder<Column>(
         future: futureNews,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Column(children: [snapshot.data!, snapshot.data!]);
+            return snapshot.data!;
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
