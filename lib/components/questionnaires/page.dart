@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './questionnaires_card.dart';
+import 'card.dart';
+import 'package:survey_kit/survey_kit.dart';
 
 class QuestionnairesPage extends StatelessWidget {
   const QuestionnairesPage({super.key});

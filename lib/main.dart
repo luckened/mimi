@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'components/bottom_navigation.dart';
 import 'components/info_page.dart';
-import 'components/news/news_page.dart';
-import 'components/questionnaires/questionnaires_page.dart';
+import 'components/news/page.dart';
+import 'components/questionnaires/page.dart';
 import 'components/contact_tracing_page.dart';
 
 void main() => runApp(const MyApp());

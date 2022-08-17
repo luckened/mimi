@@ -36,6 +36,7 @@ dependencies:
   english_words: ^4.0.0
   http: ^0.13.5
   url_launcher: ^6.1.5
+  surveykit: ^0.1
 
 dev_dependencies:
   flutter_test:
