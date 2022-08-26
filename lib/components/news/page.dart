@@ -39,6 +39,7 @@ class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
+        child: SingleChildScrollView(
       child: FutureBuilder<Column>(
         future: futureNews,
         builder: (context, snapshot) {
@@ -51,6 +52,6 @@ class _NewsPageState extends State<NewsPage> {
           return const CircularProgressIndicator();
         },
       ),
-    );
+    ));
   }
 }

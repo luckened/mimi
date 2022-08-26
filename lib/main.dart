@@ -51,12 +51,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('Mimi'),
       ),
-      body: SingleChildScrollView(
-          child: Padding(
-              padding: const EdgeInsets.only(top: 8),
-              child: Center(
-                child: _widgetOptions.elementAt(_selectedIndex),
-              ))),
+      body: Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Center(
+            child: _widgetOptions.elementAt(_selectedIndex),
+          )),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
