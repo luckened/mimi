@@ -16,8 +16,7 @@ class QuestionnairesPage extends StatelessWidget {
             snapshot.hasData &&
             snapshot.data != null) {
           final task = snapshot.data!;
-          return Scaffold(
-              body: SurveyKit(
+          return SurveyKit(
             onResult: (SurveyResult result) {
               print(result.finishReason);
               Navigator.pushNamed(context, '/');
@@ -31,7 +30,7 @@ class QuestionnairesPage extends StatelessWidget {
             surveyProgressbarConfiguration: SurveyProgressConfiguration(
               backgroundColor: Colors.white,
             ),
-          ));
+          );
         }
         return const CircularProgressIndicator.adaptive();
       },
