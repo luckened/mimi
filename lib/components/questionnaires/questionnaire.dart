@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../routes.dart';
+
 class QuestionnairePage extends StatelessWidget {
   const QuestionnairePage({super.key});
 
@@ -20,12 +22,12 @@ class QuestionnairePage extends StatelessWidget {
 
           return SurveyKit(
             onResult: (SurveyResult result) {
-              print(result.finishReason);
-              Navigator.pushNamed(context, '/');
+              Navigator.pushNamed(context, RouteConstants.questionnaireResults,
+                  arguments: result);
             },
             task: task,
             showProgress: true,
-            localizations: {
+            localizations: const {
               'cancel': 'Cancel',
               'next': 'Next',
             },
@@ -49,27 +51,27 @@ class QuestionnairePage extends StatelessWidget {
               iconTheme: const IconThemeData(
                 color: Colors.cyan,
               ),
-              textSelectionTheme: TextSelectionThemeData(
+              textSelectionTheme: const TextSelectionThemeData(
                 cursorColor: Colors.cyan,
                 selectionColor: Colors.cyan,
                 selectionHandleColor: Colors.cyan,
               ),
-              cupertinoOverrideTheme: CupertinoThemeData(
+              cupertinoOverrideTheme: const CupertinoThemeData(
                 primaryColor: Colors.cyan,
               ),
               outlinedButtonTheme: OutlinedButtonThemeData(
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(150.0, 60.0),
+                    const Size(150.0, 60.0),
                   ),
                   side: MaterialStateProperty.resolveWith(
                     (Set<MaterialState> state) {
                       if (state.contains(MaterialState.disabled)) {
-                        return BorderSide(
+                        return const BorderSide(
                           color: Colors.grey,
                         );
                       }
-                      return BorderSide(
+                      return const BorderSide(
                         color: Colors.cyan,
                       );
                     },
@@ -102,7 +104,7 @@ class QuestionnairePage extends StatelessWidget {
                   ),
                 ),
               ),
-              textTheme: TextTheme(
+              textTheme: const TextTheme(
                 headline2: TextStyle(
                   fontSize: 28.0,
                   color: Colors.black,
@@ -120,7 +122,7 @@ class QuestionnairePage extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              inputDecorationTheme: InputDecorationTheme(
+              inputDecorationTheme: const InputDecorationTheme(
                 labelStyle: TextStyle(
                   color: Colors.black,
                 ),
@@ -137,7 +139,7 @@ class QuestionnairePage extends StatelessWidget {
   }
 
   Future<Task> getJsonTask() async {
-    final taskJson = await rootBundle.loadString('assets/example_json.json');
+    final taskJson = await rootBundle.loadString('assets/covid.json');
     final taskMap = json.decode(taskJson);
 
     return Task.fromJson(taskMap);

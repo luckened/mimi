@@ -1,0 +1,196 @@
+{
+  "id": "123",
+  "type": "navigable",
+  "rules": [],
+  "steps": [
+    {
+      "stepIdentifier": {
+        "id": "1"
+      },
+      "type": "intro",
+      "title": "Welcome to the\nCOVID-19 self-assessment",
+      "text": "Remember that all the data you submit will be used only to the questionnaire purposes.\n\nIf you have any COVID-19 related symptom please seek medical aid as quickly as possible.",
+      "buttonText": "Begin"
+    },
+    {
+      "stepIdentifier": {
+        "id": "2"
+      },
+      "type": "question",
+      "title": "What is your age range?",
+      "answerFormat": {
+        "type": "multiple",
+        "textChoices": [
+          {
+            "text": "0-17 years",
+            "value": "0-17 years"
+          },
+          {
+            "text": "18-29 years",
+            "value": "18-29 years"
+          },
+          {
+            "text": "30-39 years",
+            "value": "30-39 years"
+          },
+          {
+            "text": "40-49 years",
+            "value": "40-49 years"
+          },
+          {
+            "text": "50-64 years",
+            "value": "50-64 years"
+          },
+          {
+            "text": "65-74 years",
+            "value": "65-74 years"
+          },
+          {
+            "text": "75-84 years",
+            "value": "75-84 years"
+          },
+          {
+            "text": "85+ years",
+            "value": "85+ years"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "3"
+      },
+      "type": "question",
+      "title": "Do you have any of the following symptoms?",
+      "answerFormat": {
+        "type": "multiple",
+        "textChoices": [
+          {
+            "text": "Fever or chills",
+            "value": "Fever or chills"
+          },
+          {
+            "text": "Cough",
+            "value": "Cough"
+          },
+          {
+            "text": "Shortness of breath or difficulty breathing",
+            "value": "Shortness of breath or difficulty breathing"
+          },
+          {
+            "text": "Fatigue",
+            "value": "Fatigue"
+          },
+          {
+            "text": "Muscle or body aches",
+            "value": "Muscle or body aches"
+          },
+          {
+            "text": "New loss of taste or smell",
+            "value": "New loss of taste or smell"
+          },
+          {
+            "text": "Headache",
+            "value": "Headache"
+          },
+          {
+            "text": "Sore throat",
+            "value": "Sore throat"
+          },
+          {
+            "text": "Congestion or runny nose",
+            "value": "Congestion or runny nose"
+          },
+          {
+            "text": "Diarrhea",
+            "value": "Diarrhea"
+          },
+          {
+            "text": "Nausea or vomiting",
+            "value": "Nausea or vomiting"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "4"
+      },
+      "type": "question",
+      "title": "Have you tested positive for COVID-19 in the past 10 days?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "5"
+      },
+      "type": "question",
+      "title": "Are you currently awaiting results from a COVID-19 test?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "6"
+      },
+      "type": "question",
+      "title": "Have you been diagnosed with COVID-19 by a licensed healthcare\nprovider (for example, a doctor, nurse, pharmacist, or other) in the\npast 10 days?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    },
+    {
+      "stepIdentifier": {
+        "id": "7"
+      },
+      "type": "question",
+      "title": "Have you been told that you are suspected to have COVID-19 by a\nlicensed healthcare provider in the past 10 days?",
+      "answerFormat": {
+        "type": "single",
+        "textChoices": [
+          {
+            "text": "Yes",
+            "value": "Yes"
+          },
+          {
+            "text": "No",
+            "value": "No"
+          }
+        ]
+      }
+    }
+  ]
+}

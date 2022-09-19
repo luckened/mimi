@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mimi/routes.dart';
 
 import 'components/bottom_navigation.dart';
 import 'components/info_page.dart';
 import 'components/news/page.dart';
+import 'components/questionnaires/availables/covid.dart';
 import 'components/questionnaires/page.dart';
 import 'components/contact_tracing_page.dart';
+import 'components/questionnaires/results.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,9 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: _title,
-      home: MyStatefulWidget(),
+      home: const MyStatefulWidget(),
+      routes: {
+        RouteConstants.covid19: (context) => const CovidQuestionnaire(),
+        RouteConstants.questionnaireResults: (context) =>
+            const QuestionnaireResults(),
+      },
     );
   }
 }

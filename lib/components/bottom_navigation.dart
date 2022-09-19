@@ -15,7 +15,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.medication_rounded),
-          label: 'Questionnaire',
+          label: 'Questionnaires',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.newspaper_rounded),

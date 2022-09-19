@@ -27,7 +27,6 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
-  // @TODO: futureNews should be a list of news cards
   late Future<Column> futureNews;
 
   @override
