@@ -9,7 +9,6 @@ class QuestionnaireResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as SurveyResult;
-    inspect(args);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Questionnaire results'),
