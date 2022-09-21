@@ -9,10 +9,23 @@ class QuestionnaireResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as SurveyResult;
+    final results = args.results;
+    final stepResults =
+        results.map((item) => item.results[0].valueIdentifier).toList();
+
+    inspect(stepResults);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Questionnaire results'),
         ),
-        body: Column());
+        body: Center(
+            child: Column(children: [
+          ...stepResults.map((result) => Text(result!)).toList(),
+          TextButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: const Text('Back to home screen'))
+        ])));
   }
 }

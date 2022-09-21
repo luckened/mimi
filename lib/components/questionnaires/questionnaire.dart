@@ -22,7 +22,8 @@ class QuestionnairePage extends StatelessWidget {
 
           return SurveyKit(
             onResult: (SurveyResult result) {
-              Navigator.pushNamed(context, RouteConstants.questionnaireResults,
+              Navigator.pushReplacementNamed(
+                  context, RouteConstants.questionnaireResults,
                   arguments: result);
             },
             task: task,

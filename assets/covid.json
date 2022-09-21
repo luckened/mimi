@@ -19,11 +19,11 @@
       "type": "question",
       "title": "What is your age range?",
       "answerFormat": {
-        "type": "multiple",
+        "type": "single",
         "textChoices": [
           {
-            "text": "0-17 years",
-            "value": "0-17 years"
+            "text": "17 years or less",
+            "value": "17 years or less"
           },
           {
             "text": "18-29 years",
