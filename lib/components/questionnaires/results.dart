@@ -12,20 +12,40 @@ class QuestionnaireResults extends StatelessWidget {
     final results = args.results;
     final stepResults =
         results.map((item) => item.results[0].valueIdentifier).toList();
+    stepResults.removeAt(0);
+    String text = '';
 
-    inspect(stepResults);
+    if (stepResults.contains('Yes')) {
+      text = 'You have a high risk of having COVID-19';
+    } else {
+      text = 'You have a low risk of having COVID-19';
+    }
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Questionnaire results'),
         ),
         body: Center(
-            child: Column(children: [
-          ...stepResults.map((result) => Text(result!)).toList(),
-          TextButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/');
-              },
-              child: const Text('Back to home screen'))
-        ])));
+            child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: Column(
+            children: [
+              ...stepResults
+                  .map((result) => Text(
+                        result!,
+                        style: const TextStyle(fontSize: 20),
+                      ))
+                  .toList(),
+              Text(text, style: TextStyle(color: Colors.red, fontSize: 30)),
+              Align(
+                  alignment: Alignment.bottomRight,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/');
+                      },
+                      child: const Text('Back to home screen'))),
+            ],
+          ),
+        )));
   }
 }
